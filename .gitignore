@@ -1,0 +1,11 @@
+﻿target/
+*.class
+*.log
+hs_err_pid*
+.idea/
+.vscode/
+*.iml
+__pycache__/
+.venv/
+evaluation/results/raw/
+~$*
