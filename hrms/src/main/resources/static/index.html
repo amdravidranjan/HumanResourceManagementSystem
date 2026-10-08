@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HRMS Login</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="login-wrap">
+  <div class="card login">
+    <div class="brand" style="padding:0 0 6px">Scalable <span>HRMS</span></div>
+    <p class="muted small" style="margin-top:0">UCS3513 System Design Lab · Mini project #6</p>
+    <div id="msg" class="small" style="color:var(--bad);min-height:18px"></div>
+    <form id="f">
+      <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="username" required value="admin@hrms.local"></div>
+      <div class="field"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required value="admin123"></div>
+      <button id="go" style="width:100%">Sign in</button>
+    </form>
+    <div class="small muted" style="margin-top:14px">
+      Demo accounts:
+      <a href="#" data-u="admin@hrms.local" data-p="admin123">HR admin</a> ·
+      <a href="#" data-u="manager@hrms.local" data-p="manager123">Manager</a> ·
+      <a href="#" data-u="employee@hrms.local" data-p="employee123">Employee</a>
+    </div>
+  </div>
+</div>
+<script src="/js/api.js"></script>
+<script>
+  if (new URLSearchParams(location.search).has('expired')) document.getElementById('msg').textContent = 'Your session expired. Please sign in again.';
+  if (API.token()) location.href = '/app.html';
+  document.querySelectorAll('[data-u]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('email').value = a.dataset.u;
+    document.getElementById('pw').value = a.dataset.p;
+  }));
+  document.getElementById('f').addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = document.getElementById('go');
+    btn.disabled = true;
+    try {
+      const r = await API.post('/api/auth/login', { email: document.getElementById('email').value, password: document.getElementById('pw').value });
+      API.save(r);
+      location.href = '/app.html';
+    } catch (err) {
+      document.getElementById('msg').textContent = err.message;
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

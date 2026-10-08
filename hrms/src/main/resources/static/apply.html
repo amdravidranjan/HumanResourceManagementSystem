@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Opening</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="login-wrap">
+  <div class="card" style="width:100%;max-width:620px">
+    <div class="brand" style="padding:0 0 10px">SSN Tech <span>Careers</span></div>
+    <div id="offer"></div>
+    <div id="job"><p class="muted">Loading job...</p></div>
+    <form id="f" style="display:none">
+      <h2>Apply for this role</h2>
+      <div class="field"><label for="name">Full name</label><input id="name" required></div>
+      <div class="row">
+        <div class="field"><label for="email">Email</label><input id="email" type="email" required></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone"></div>
+      </div>
+      <button>Submit application</button>
+    </form>
+    <div id="done"></div>
+  </div>
+</div>
+<script src="/js/api.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const jobId = params.get('job');
+  if (params.get('offer')) {
+    document.getElementById('offer').innerHTML = `<div class="card" style="background:var(--ok-soft)"><h2>Congratulations, ${esc(params.get('offer'))}!</h2>
+      <p>We are delighted to offer you this position. Our HR team will contact you with the formal offer letter. This link expires in 7 days.</p></div>`;
+  }
+  (async () => {
+    try {
+      const j = await API.get('/api/public/jobs/' + encodeURIComponent(jobId || ''));
+      document.title = j.title + ' - ' + j.company;
+      document.getElementById('job').innerHTML = `<h1>${esc(j.title)}</h1>
+        <p class="muted">${esc(j.company)} · ${esc(j.department)} · ${esc(j.location)}</p><p>${esc(j.description || '')}</p>`;
+      if (!params.get('offer')) document.getElementById('f').style.display = 'block';
+    } catch (e) {
+      document.getElementById('job').innerHTML = `<p>${esc(e.message)}</p>`;
+    }
+  })();
+  document.getElementById('f').addEventListener('submit', async e => {
+    e.preventDefault();
+    try {
+      const r = await API.post('/api/public/jobs/' + encodeURIComponent(jobId) + '/apply', {
+        name: document.getElementById('name').value, email: document.getElementById('email').value, phone: document.getElementById('phone').value });
+      document.getElementById('f').style.display = 'none';
+      document.getElementById('done').innerHTML = `<div class="card" style="background:var(--ok-soft)">Thank you! Your application for <b>${esc(r.jobTitle)}</b> was received (reference ${esc(r.candidateId)}).</div>`;
+    } catch (err) { toast(err.message, true); }
+  });
+</script>
+</body>
+</html>

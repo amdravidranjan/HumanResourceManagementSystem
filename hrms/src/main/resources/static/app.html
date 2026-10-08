@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scalable HRMS</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">Scalable <span>HRMS</span></div>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1 id="title">Dashboard</h1><div class="muted small" id="subtitle"></div></div>
+      <div class="who">
+        <span class="badge" id="served" title="HR node chosen by the gateway's consistent-hash ring">served by -</span>
+        <span id="who" class="small"></span>
+        <button class="secondary sm" id="logout">Sign out</button>
+      </div>
+    </div>
+    <div id="view"></div>
+  </main>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
