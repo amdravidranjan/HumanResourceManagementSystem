@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /portal-b/admin/
+Disallow: /portal-c/private/
