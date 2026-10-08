@@ -9,3 +9,4 @@ __pycache__/
 .venv/
 evaluation/results/raw/
 ~$*
+.superpowers/
