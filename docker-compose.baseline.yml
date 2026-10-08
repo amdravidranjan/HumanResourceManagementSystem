@@ -1,0 +1,33 @@
+# Baseline for comparison: 1 Mongo instance, 1 node, no cache, no rate limiter, regex search.
+# Stop the main stack first (same host ports): docker compose down ; docker compose -f docker-compose.baseline.yml up -d
+name: hrms-baseline
+
+services:
+  mongo-shard-0:
+    image: mongo:7.0
+    command: ["--wiredTigerCacheSizeGB", "0.25", "--quiet"]
+    ports: ["27101:27017"]
+    volumes: ["bshard0:/data/db"]
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    ports: ["6379:6379"]
+  mock-portals:
+    image: nginx:1.27-alpine
+    ports: ["9000:80"]
+    volumes: ["./mock-portals/site:/usr/share/nginx/html:ro"]
+  hrms-node-1:
+    image: hrms-app:latest
+    build: ./hrms
+    depends_on: [redis, mongo-shard-0, mock-portals]
+    environment: {HRMS_ROLE: node, HRMS_NODE_ID: "1", HRMS_NODE_URL: "http://hrms-node-1:8081", SERVER_PORT: "8081", HRMS_BASELINE: "true"}
+    ports: ["8081:8081"]
+  hrms-gateway:
+    image: hrms-app:latest
+    build: ./hrms
+    depends_on: [redis, hrms-node-1]
+    environment: {HRMS_ROLE: gateway, HRMS_NODE_ID: "0", SERVER_PORT: "8080", HRMS_BASELINE: "true"}
+    ports: ["8080:8080"]
+
+volumes:
+  bshard0:

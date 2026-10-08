@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: hrms
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
+      timeout: 2s
+
+server:
+  port: ${SERVER_PORT:8080}
+  tomcat:
+    threads:
+      max: 200
+
+hrms:
+  role: ${HRMS_ROLE:node}
+  node-id: ${HRMS_NODE_ID:1}
+  node-url: ${HRMS_NODE_URL:http://localhost:8081}
+  baseline: ${HRMS_BASELINE:false}
+  virtual-nodes: 150
+  initial-shards: shard-0,shard-1,shard-2
+  shards:
+    "[shard-0]": ${MONGO_SHARD_0:mongodb://mongo-shard-0:27017}
+    "[shard-1]": ${MONGO_SHARD_1:mongodb://mongo-shard-1:27017}
+    "[shard-2]": ${MONGO_SHARD_2:mongodb://mongo-shard-2:27017}
+    "[shard-3]": ${MONGO_SHARD_3:mongodb://mongo-shard-3:27017}
+  seed:
+    enabled: ${HRMS_SEED_ENABLED:true}
+    employees: ${HRMS_SEED_EMPLOYEES:10000}
+    attendance-days: 20
+  crawler:
+    seeds: ${HRMS_CRAWLER_SEEDS:http://mock-portals/portal-a/index.html,http://mock-portals/portal-b/index.html,http://mock-portals/portal-c/index.html}
+    max-depth: 3
+    max-pages: 500
+    politeness-ms: 200
+
+logging:
+  level:
+    org.mongodb.driver: warn

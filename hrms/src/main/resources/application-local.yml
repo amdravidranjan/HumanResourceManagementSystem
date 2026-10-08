@@ -1,0 +1,16 @@
+# Run outside Docker against the compose-published ports:
+#   node:    mvnw spring-boot:run -Dspring-boot.run.profiles=local -Dspring-boot.run.arguments="--hrms.role=node --server.port=8081"
+#   gateway: mvnw spring-boot:run -Dspring-boot.run.profiles=local -Dspring-boot.run.arguments="--hrms.role=gateway --hrms.node-id=0 --server.port=8080"
+spring:
+  data:
+    redis:
+      host: localhost
+hrms:
+  node-url: http://localhost:8081
+  shards:
+    "[shard-0]": mongodb://localhost:27101
+    "[shard-1]": mongodb://localhost:27102
+    "[shard-2]": mongodb://localhost:27103
+    "[shard-3]": mongodb://localhost:27104
+  crawler:
+    seeds: http://localhost:9000/portal-a/index.html,http://localhost:9000/portal-b/index.html,http://localhost:9000/portal-c/index.html
