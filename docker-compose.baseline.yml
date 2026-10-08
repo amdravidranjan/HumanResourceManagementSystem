@@ -11,7 +11,7 @@ services:
   redis:
     image: redis:7-alpine
     command: ["redis-server", "--save", "", "--appendonly", "no"]
-    ports: ["6379:6379"]
+    ports: ["6380:6379"]  # host 6380: a native Windows Redis 3.0 service already uses 6379
   mock-portals:
     image: nginx:1.27-alpine
     ports: ["9000:80"]

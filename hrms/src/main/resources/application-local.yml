@@ -5,6 +5,7 @@ spring:
   data:
     redis:
       host: localhost
+      port: 6380
 hrms:
   node-url: http://localhost:8081
   shards:

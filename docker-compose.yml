@@ -38,7 +38,7 @@ services:
     container_name: redis
     # AOF persistence: active-shard ring, login index and short links survive a Redis restart
     command: ["redis-server", "--appendonly", "yes", "--appendfsync", "everysec"]
-    ports: ["6379:6379"]
+    ports: ["6380:6379"]  # host 6380: a native Windows Redis 3.0 service already uses 6379
     volumes: ["redisdata:/data"]
     restart: unless-stopped
 
