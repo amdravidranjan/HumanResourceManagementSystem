@@ -147,9 +147,16 @@ Or zip the `evaluation/results` and `evaluation/graphs` folders and send them ov
 
 ### 9. Stop everything
 
-```bash
-docker compose down        # stop; keeps the data
-docker compose down -v     # stop and delete all data (next start re-seeds)
+To stop the system and keep the data:
+
+```
+docker compose down
+```
+
+To stop it and delete all data (the next start loads fresh demo data):
+
+```
+docker compose down -v
 ```
 
 ---
@@ -180,6 +187,7 @@ docker compose down -v     # stop and delete all data (next start re-seeds)
 | Problem | Fix |
 |---------|-----|
 | `docker` commands hang, or say "cannot connect to the Docker daemon" | Quit Docker Desktop completely and reopen it. Wait for "Engine running". |
+| Build fails with `failed to fetch anonymous token` / `auth.docker.io ... forcibly closed` | The network is blocking Docker Hub. Switch to a mobile hotspot and run the command again. Or, in `cmd`, run `set DOCKER_BUILDKIT=0` and `set COMPOSE_BAKE=false` first; that reuses the images already downloaded. |
 | A container keeps restarting, or an out-of-memory error (exit code 137) | Give Docker more memory (Settings → Resources) and close other apps. |
 | `port is already allocated` | Another program is using that port. Stop it, or change the left-hand port number in `docker-compose.yml`. |
 | Login fails right after startup | The data is still loading. Wait for the `Search index rebuilt: 10000 employees` log line (step 3). |
