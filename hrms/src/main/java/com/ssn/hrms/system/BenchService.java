@@ -254,14 +254,32 @@ public class BenchService {
     // ---------- Sessions for load testing ----------
     public List<Map<String, String>> sessions(int count) {
         int n = Math.max(1, Math.min(count, 1000));
-        List<Employee> emps = store.scatter(() -> {
+        Map<String, List<Employee>> perShard = store.perShard((s, t) -> {
             Query q = Query.query(Criteria.where("role").is("EMPLOYEE").and("status").is("ACTIVE")).limit(n);
             q.fields().include("name", "role", "department");
-            return q;
-        }, Employee.class).items();
+            return t.find(q, Employee.class);
+        }).results();
         List<Map<String, String>> out = new ArrayList<>();
-        for (Employee e : emps.subList(0, Math.min(n, emps.size()))) {
+        // round-robin over shards so the load (and a shard-failure test) touches every shard, not just shard-0
+        for (Employee e : interleave(perShard.values(), n)) {
             out.add(Map.of("token", sessions.create(e.id, e.role, e.name, e.department), "employeeId", e.id));
+        }
+        return out;
+    }
+
+    static <T> List<T> interleave(Collection<List<T>> lists, int n) {
+        List<T> out = new ArrayList<>();
+        for (int i = 0; out.size() < n; i++) {
+            boolean any = false;
+            for (List<T> l : lists) {
+                if (i < l.size() && out.size() < n) {
+                    out.add(l.get(i));
+                    any = true;
+                }
+            }
+            if (!any) {
+                break;
+            }
         }
         return out;
     }

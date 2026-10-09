@@ -17,6 +17,13 @@ class BenchMathTest {
     }
 
     @Test
+    void loadTestUsersAreSpreadAcrossShards() {
+        List<List<String>> perShard = List.of(List.of("a1", "a2", "a3"), List.of("b1", "b2"), List.of("c1", "c2", "c3"));
+        assertThat(BenchService.interleave(perShard, 5)).containsExactly("a1", "b1", "c1", "a2", "b2");
+        assertThat(BenchService.interleave(perShard, 20)).hasSize(8);
+    }
+
+    @Test
     void duplicatesAndSpread() {
         assertThat(BenchService.countDuplicates(new long[] {5, 1, 5, 3, 1, 5})).isEqualTo(3);
         assertThat(BenchService.countDuplicates(new long[] {1, 2, 3})).isZero();
