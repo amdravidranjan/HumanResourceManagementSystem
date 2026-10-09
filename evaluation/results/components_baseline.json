@@ -1,38 +1,38 @@
 {
   "snowflake": {
     "count": 300000,
-    "singleGeneratorMs": 77.669,
-    "singleGeneratorIdsPerSecond": 3862553,
+    "singleGeneratorMs": 73.25,
+    "singleGeneratorIdsPerSecond": 4095591,
     "distinctNodeIds": {
       "nodeIds": "[1, 2, 3]",
       "generated": 300000,
-      "ms": 42.074,
-      "idsPerSecond": 7130378,
+      "ms": 42.487,
+      "idsPerSecond": 7060920,
       "collisions": 0
     },
     "sameNodeIdMisconfigured": {
       "nodeIds": "[1, 1, 1]",
       "generated": 300000,
-      "ms": 32.417,
-      "idsPerSecond": 9254268,
-      "collisions": 178887
+      "ms": 28.626,
+      "idsPerSecond": 10479937,
+      "collisions": 188937
     }
   },
   "kv": {
     "samples": 1000,
     "redis": {
-      "avgMs": 0.983,
-      "p50Ms": 0.816,
-      "p95Ms": 1.699,
-      "p99Ms": 3.538
+      "avgMs": 1.045,
+      "p50Ms": 0.876,
+      "p95Ms": 1.989,
+      "p99Ms": 3.759
     },
     "mongo": {
-      "avgMs": 1.269,
-      "p50Ms": 1.157,
-      "p95Ms": 2.111,
-      "p99Ms": 3.34
+      "avgMs": 1.37,
+      "p50Ms": 1.218,
+      "p95Ms": 2.475,
+      "p99Ms": 4.425
     },
-    "speedup": 1.29,
+    "speedup": 1.311,
     "nodeCacheHitRatio": 0.0,
     "nodeCacheHits": 0,
     "nodeCacheMisses": 0
@@ -43,14 +43,14 @@
     "trie": {
       "avgMs": 0.007,
       "p50Ms": 0.004,
-      "p95Ms": 0.012,
-      "p99Ms": 0.034
+      "p95Ms": 0.01,
+      "p99Ms": 0.042
     },
     "regexScatter": {
-      "avgMs": 38.742,
-      "p50Ms": 37.502,
-      "p95Ms": 50.375,
-      "p99Ms": 60.46
+      "avgMs": 37.759,
+      "p50Ms": 37.494,
+      "p95Ms": 44.142,
+      "p99Ms": 52.059
     },
     "precisionAt10": 1.0
   },
@@ -60,75 +60,75 @@
       {
         "virtualNodes": 1,
         "counts": {
-          "shard-0": 70378,
-          "shard-1": 8715,
-          "shard-2": 20907
+          "shard-0": 70314,
+          "shard-1": 8676,
+          "shard-2": 21010
         },
-        "stdDevPercent": 79.99,
-        "maxOverMin": 8.076
+        "stdDevPercent": 79.889,
+        "maxOverMin": 8.104
       },
       {
         "virtualNodes": 10,
         "counts": {
-          "shard-0": 37517,
-          "shard-1": 30224,
-          "shard-2": 32259
+          "shard-0": 37372,
+          "shard-1": 30586,
+          "shard-2": 32042
         },
-        "stdDevPercent": 9.218,
-        "maxOverMin": 1.241
+        "stdDevPercent": 8.751,
+        "maxOverMin": 1.222
       },
       {
         "virtualNodes": 50,
         "counts": {
-          "shard-0": 27914,
-          "shard-1": 32787,
-          "shard-2": 39299
+          "shard-0": 28071,
+          "shard-1": 32435,
+          "shard-2": 39494
         },
-        "stdDevPercent": 13.992,
-        "maxOverMin": 1.408
+        "stdDevPercent": 14.119,
+        "maxOverMin": 1.407
       },
       {
         "virtualNodes": 150,
         "counts": {
-          "shard-0": 34900,
-          "shard-1": 33472,
-          "shard-2": 31628
+          "shard-0": 34730,
+          "shard-1": 33562,
+          "shard-2": 31708
         },
-        "stdDevPercent": 4.018,
-        "maxOverMin": 1.103
+        "stdDevPercent": 3.733,
+        "maxOverMin": 1.095
       },
       {
         "virtualNodes": 500,
         "counts": {
-          "shard-0": 33898,
-          "shard-1": 32293,
-          "shard-2": 33809
+          "shard-0": 34347,
+          "shard-1": 31922,
+          "shard-2": 33731
         },
-        "stdDevPercent": 2.21,
-        "maxOverMin": 1.05
+        "stdDevPercent": 3.087,
+        "maxOverMin": 1.076
       }
     ],
     "addFourthShard": {
-      "consistentMovedPercent": 26.331,
-      "moduloMovedPercent": 74.806,
+      "consistentMovedPercent": 25.986,
+      "moduloMovedPercent": 75.023,
       "idealPercent": 25.0
     }
   },
   "redirect": {
     "requests": 500,
     "redirects302": 500,
-    "avgMs": 10.304,
-    "p95Ms": 14.435,
-    "p99Ms": 21.131
+    "avgMs": 11.231,
+    "p95Ms": 14.12,
+    "p99Ms": 21.9
   },
   "rateLimiter": {
     "sent": 600,
     "allowed": 600,
     "rejected429": 0,
-    "durationSec": 1.84,
+    "durationSec": 1.88,
     "rejectionRate": 0.0,
-    "expectedAllowedApprox": 192,
-    "offeredRps": 325.9
+    "expectedAllowedApprox": 194,
+    "offeredRps": 319.8
   },
   "stats": {
     "servedBy": "node-1",
@@ -185,15 +185,15 @@
           "cacheHits": "0",
           "idsGenerated": "202094",
           "trieEntries": "69980",
-          "updatedAt": "1791565328606"
+          "updatedAt": "1791567953701"
         }
       }
     ],
     "cache": {
       "hits": 0,
-      "hitRatio": 0.0,
+      "enabled": false,
       "misses": 0,
-      "enabled": false
+      "hitRatio": 0.0
     },
     "autocompleteEntries": 69980,
     "crawler": {

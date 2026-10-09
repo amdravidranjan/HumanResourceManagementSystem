@@ -1,52 +1,52 @@
 [
   {
     "nodes": 1,
-    "throughputRps": 319.1,
-    "avgMs": 313.98,
-    "p95Ms": 641.0,
+    "throughputRps": 360.2,
+    "avgMs": 277.96,
+    "p95Ms": 556.75,
     "errorRate": 0.0,
     "perNode": {
-      "node-1": 12113,
-      "(none)": 650
+      "node-1": 13664,
+      "(none)": 744
     }
   },
   {
     "nodes": 2,
-    "throughputRps": 322.5,
-    "avgMs": 309.87,
-    "p95Ms": 716.3,
+    "throughputRps": 308.0,
+    "avgMs": 324.06,
+    "p95Ms": 648.7,
     "errorRate": 0.0,
     "perNode": {
-      "node-1": 5003,
-      "(none)": 663,
-      "node-2": 7235
+      "node-2": 6444,
+      "(none)": 641,
+      "node-1": 5234
     }
   },
   {
     "nodes": 3,
-    "throughputRps": 322.9,
-    "avgMs": 309.25,
-    "p95Ms": 615.66,
+    "throughputRps": 348.6,
+    "avgMs": 287.57,
+    "p95Ms": 513.35,
     "errorRate": 0.0,
     "perNode": {
-      "node-2": 6261,
-      "(none)": 660,
-      "node-1": 3281,
-      "node-3": 2716
+      "node-3": 5201,
+      "(none)": 716,
+      "node-2": 4356,
+      "node-1": 3671
     }
   },
   {
     "nodes": 4,
-    "throughputRps": 367.1,
-    "avgMs": 273.67,
-    "p95Ms": 473.61,
+    "throughputRps": 361.6,
+    "avgMs": 276.72,
+    "p95Ms": 504.59,
     "errorRate": 0.0,
     "perNode": {
-      "node-1": 2866,
-      "(none)": 743,
-      "node-2": 5279,
-      "node-4": 3529,
-      "node-3": 2268
+      "node-1": 3380,
+      "(none)": 745,
+      "node-4": 2536,
+      "node-2": 3161,
+      "node-3": 4644
     }
   }
 ]

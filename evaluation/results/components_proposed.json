@@ -1,56 +1,56 @@
 {
   "snowflake": {
     "count": 300000,
-    "singleGeneratorMs": 76.184,
-    "singleGeneratorIdsPerSecond": 3937811,
+    "singleGeneratorMs": 78.875,
+    "singleGeneratorIdsPerSecond": 3803482,
     "distinctNodeIds": {
       "nodeIds": "[1, 2, 3]",
       "generated": 300000,
-      "ms": 29.228,
-      "idsPerSecond": 10264040,
+      "ms": 31.858,
+      "idsPerSecond": 9416762,
       "collisions": 0
     },
     "sameNodeIdMisconfigured": {
       "nodeIds": "[1, 1, 1]",
       "generated": 300000,
-      "ms": 26.959,
-      "idsPerSecond": 11128099,
-      "collisions": 193998
+      "ms": 27.466,
+      "idsPerSecond": 10922767,
+      "collisions": 192273
     }
   },
   "kv": {
     "samples": 1000,
     "redis": {
-      "avgMs": 0.544,
-      "p50Ms": 0.404,
-      "p95Ms": 1.352,
-      "p99Ms": 2.521
+      "avgMs": 1.175,
+      "p50Ms": 0.949,
+      "p95Ms": 2.04,
+      "p99Ms": 3.287
     },
     "mongo": {
-      "avgMs": 0.837,
-      "p50Ms": 0.647,
-      "p95Ms": 2.045,
-      "p99Ms": 4.473
+      "avgMs": 1.501,
+      "p50Ms": 1.308,
+      "p95Ms": 2.849,
+      "p99Ms": 4.049
     },
-    "speedup": 1.539,
-    "nodeCacheHitRatio": 0.997,
-    "nodeCacheHits": 4138,
-    "nodeCacheMisses": 13
+    "speedup": 1.277,
+    "nodeCacheHitRatio": 0.0,
+    "nodeCacheHits": 0,
+    "nodeCacheMisses": 0
   },
   "autocomplete": {
     "queries": 2000,
-    "indexedTerms": 69991,
+    "indexedTerms": 69980,
     "trie": {
-      "avgMs": 0.003,
+      "avgMs": 0.005,
       "p50Ms": 0.002,
-      "p95Ms": 0.005,
-      "p99Ms": 0.019
+      "p95Ms": 0.009,
+      "p99Ms": 0.048
     },
     "regexScatter": {
-      "avgMs": 15.172,
-      "p50Ms": 14.836,
-      "p95Ms": 20.226,
-      "p99Ms": 23.991
+      "avgMs": 16.066,
+      "p50Ms": 15.206,
+      "p95Ms": 23.906,
+      "p99Ms": 29.548
     },
     "precisionAt10": 1.0
   },
@@ -60,78 +60,78 @@
       {
         "virtualNodes": 1,
         "counts": {
-          "shard-0": 70433,
-          "shard-1": 8748,
-          "shard-2": 20819
+          "shard-0": 70478,
+          "shard-1": 8745,
+          "shard-2": 20777
         },
-        "stdDevPercent": 80.077,
-        "maxOverMin": 8.051
+        "stdDevPercent": 80.162,
+        "maxOverMin": 8.059
       },
       {
         "virtualNodes": 10,
         "counts": {
-          "shard-0": 37448,
-          "shard-1": 30414,
-          "shard-2": 32138
+          "shard-0": 37315,
+          "shard-1": 30665,
+          "shard-2": 32020
         },
-        "stdDevPercent": 8.98,
-        "maxOverMin": 1.231
+        "stdDevPercent": 8.608,
+        "maxOverMin": 1.217
       },
       {
         "virtualNodes": 50,
         "counts": {
-          "shard-0": 27977,
-          "shard-1": 32955,
-          "shard-2": 39068
+          "shard-0": 27870,
+          "shard-1": 33022,
+          "shard-2": 39108
         },
-        "stdDevPercent": 13.607,
-        "maxOverMin": 1.396
+        "stdDevPercent": 13.78,
+        "maxOverMin": 1.403
       },
       {
         "virtualNodes": 150,
         "counts": {
-          "shard-0": 34793,
-          "shard-1": 33908,
-          "shard-2": 31299
+          "shard-0": 34704,
+          "shard-1": 33728,
+          "shard-2": 31568
         },
-        "stdDevPercent": 4.45,
-        "maxOverMin": 1.112
+        "stdDevPercent": 3.931,
+        "maxOverMin": 1.099
       },
       {
         "virtualNodes": 500,
         "counts": {
-          "shard-0": 34019,
-          "shard-1": 32020,
-          "shard-2": 33961
+          "shard-0": 34332,
+          "shard-1": 32144,
+          "shard-2": 33524
         },
-        "stdDevPercent": 2.787,
-        "maxOverMin": 1.062
+        "stdDevPercent": 2.71,
+        "maxOverMin": 1.068
       }
     ],
     "addFourthShard": {
-      "consistentMovedPercent": 25.925,
-      "moduloMovedPercent": 74.988,
+      "consistentMovedPercent": 25.926,
+      "moduloMovedPercent": 75.094,
       "idealPercent": 25.0
     }
   },
   "redirect": {
     "requests": 500,
     "redirects302": 500,
-    "avgMs": 5.229,
-    "p95Ms": 7.297,
-    "p99Ms": 10.082
+    "avgMs": 9.083,
+    "p95Ms": 12.885,
+    "p99Ms": 14.976
   },
   "rateLimiter": {
     "sent": 600,
-    "allowed": 184,
-    "rejected429": 416,
-    "durationSec": 1.74,
-    "rejectionRate": 0.6933,
-    "expectedAllowedApprox": 187,
-    "offeredRps": 345.6
+    "allowed": 189,
+    "rejected429": 411,
+    "durationSec": 1.83,
+    "rejectionRate": 0.685,
+    "expectedAllowedApprox": 191,
+    "offeredRps": 328.8
   },
   "stats": {
-    "servedBy": "node-3",
+    "servedBy": "node-2",
     "baseline": false,
     "rebalancing": false,
     "shards": [
@@ -140,15 +140,15 @@
         "active": true,
         "ringOwnership": 0.3484494951553643,
         "counts": {
-          "employees": 3489,
-          "attendance": 64091,
-          "leaves": 2873,
-          "payslips": 3489,
-          "reviews": 63,
-          "notifications": 3836,
-          "jobs": 48,
-          "candidates": 14,
-          "short_urls": 6
+          "employees": 3477,
+          "attendance": 64024,
+          "leaves": 2773,
+          "payslips": 0,
+          "reviews": 60,
+          "notifications": 2,
+          "jobs": 4,
+          "candidates": 13,
+          "short_urls": 5
         },
         "healthy": true
       },
@@ -157,15 +157,15 @@
         "active": true,
         "ringOwnership": 0.33554716827347875,
         "counts": {
-          "employees": 3345,
-          "attendance": 61416,
-          "leaves": 2771,
-          "payslips": 3344,
-          "reviews": 82,
-          "notifications": 3678,
-          "jobs": 28,
-          "candidates": 14,
-          "short_urls": 6
+          "employees": 3303,
+          "attendance": 60622,
+          "leaves": 2717,
+          "payslips": 0,
+          "reviews": 76,
+          "notifications": 0,
+          "jobs": 1,
+          "candidates": 15,
+          "short_urls": 3
         },
         "healthy": true
       },
@@ -174,15 +174,15 @@
         "active": true,
         "ringOwnership": 0.316003336571157,
         "counts": {
-          "employees": 3168,
-          "attendance": 58421,
-          "leaves": 2471,
-          "payslips": 3168,
-          "reviews": 67,
-          "notifications": 3492,
-          "jobs": 39,
-          "candidates": 10,
-          "short_urls": 3
+          "employees": 3220,
+          "attendance": 59271,
+          "leaves": 2623,
+          "payslips": 0,
+          "reviews": 75,
+          "notifications": 1,
+          "jobs": 7,
+          "candidates": 9,
+          "short_urls": 4
         },
         "healthy": true
       },
@@ -210,12 +210,12 @@
         "url": "http://hrms-node-1:8081",
         "alive": true,
         "stats": {
-          "requests": "2301",
-          "cacheMisses": "2",
-          "cacheHits": "920",
-          "idsGenerated": "1",
-          "trieEntries": "69991",
-          "updatedAt": "1791564583308"
+          "requests": "156",
+          "cacheMisses": "0",
+          "cacheHits": "0",
+          "idsGenerated": "0",
+          "trieEntries": "69980",
+          "updatedAt": "1791567015037"
         }
       },
       {
@@ -223,12 +223,12 @@
         "url": "http://hrms-node-2:8082",
         "alive": true,
         "stats": {
-          "requests": "11873",
-          "cacheMisses": "10",
-          "cacheHits": "5046",
-          "idsGenerated": "202100",
-          "trieEntries": "69991",
-          "updatedAt": "1791564583309"
+          "requests": "7",
+          "cacheMisses": "0",
+          "cacheHits": "0",
+          "idsGenerated": "202094",
+          "trieEntries": "69980",
+          "updatedAt": "1791567015035"
         }
       },
       {
@@ -236,35 +236,24 @@
         "url": "http://hrms-node-3:8083",
         "alive": true,
         "stats": {
-          "requests": "10340",
-          "cacheMisses": "13",
-          "cacheHits": "4138",
-          "idsGenerated": "11119",
-          "trieEntries": "69991",
-          "updatedAt": "1791564583309"
+          "requests": "1",
+          "cacheMisses": "0",
+          "cacheHits": "0",
+          "idsGenerated": "0",
+          "trieEntries": "69980",
+          "updatedAt": "1791567015037"
         }
       }
     ],
     "cache": {
-      "hitRatio": 0.9968682245242111,
-      "misses": 13,
+      "hitRatio": 0.0,
+      "misses": 0,
       "enabled": true,
-      "hits": 4138
+      "hits": 0
     },
-    "autocompleteEntries": 69991,
+    "autocompleteEntries": 69980,
     "crawler": {
-      "status": "DONE",
-      "pagesFetched": "136",
-      "pagesFailed": "0",
-      "jobsFound": "102",
-      "duplicatesDropped": "18",
-      "blockedByRobots": "2",
-      "startedAt": "1791563970865",
-      "finishedAt": "1791563998058",
-      "pagesPerSecond": "5.00",
-      "node": "node-3",
-      "imported": "102",
-      "duplicatesSkipped": "0"
+      "status": "IDLE"
     }
   },
   "loginBruteForce": {

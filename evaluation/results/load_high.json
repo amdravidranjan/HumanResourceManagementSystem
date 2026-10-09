@@ -2,92 +2,92 @@
   "label": "high",
   "users": 200,
   "durationSec": 60,
-  "requests": 22075,
-  "throughputRps": 367.9,
+  "requests": 21684,
+  "throughputRps": 361.4,
   "successRate": 1.0,
   "errorRate": 0.0,
   "rateLimited": 0,
-  "avgMs": 537.67,
-  "p50Ms": 465.55,
-  "p95Ms": 1131.25,
-  "p99Ms": 1519.57,
-  "maxMs": 3273.66,
+  "avgMs": 542.56,
+  "p50Ms": 475.55,
+  "p95Ms": 1112.11,
+  "p99Ms": 1478.5,
+  "maxMs": 2647.01,
   "perOp": {
     "profile": {
-      "count": 6647,
-      "avgMs": 522.63,
-      "p95Ms": 1097.22,
+      "count": 6534,
+      "avgMs": 531.39,
+      "p95Ms": 1075.77,
       "errors": 0
     },
     "suggest": {
-      "count": 4488,
-      "avgMs": 525.49,
-      "p95Ms": 1105.42,
+      "count": 4418,
+      "avgMs": 522.41,
+      "p95Ms": 1070.96,
       "errors": 0
     },
     "checkin": {
-      "count": 3307,
-      "avgMs": 523.15,
-      "p95Ms": 1088.63,
+      "count": 3236,
+      "avgMs": 529.17,
+      "p95Ms": 1086.43,
       "errors": 0
     },
     "leave_balance": {
-      "count": 2220,
-      "avgMs": 528.84,
-      "p95Ms": 1101.39,
+      "count": 2188,
+      "avgMs": 530.82,
+      "p95Ms": 1121.78,
       "errors": 0
     },
     "notifications": {
-      "count": 2141,
-      "avgMs": 521.74,
-      "p95Ms": 1117.64,
+      "count": 2100,
+      "avgMs": 529.05,
+      "p95Ms": 1082.57,
       "errors": 0
     },
     "payslips": {
-      "count": 1049,
-      "avgMs": 528.58,
-      "p95Ms": 1118.35,
+      "count": 1036,
+      "avgMs": 533.28,
+      "p95Ms": 1069.23,
       "errors": 0
     },
     "jobs": {
-      "count": 1129,
-      "avgMs": 523.76,
-      "p95Ms": 1080.22,
+      "count": 1109,
+      "avgMs": 536.53,
+      "p95Ms": 1072.35,
       "errors": 0
     },
     "redirect": {
-      "count": 1094,
-      "avgMs": 795.05,
-      "p95Ms": 1455.03,
+      "count": 1063,
+      "avgMs": 801.84,
+      "p95Ms": 1495.96,
       "errors": 0
     }
   },
   "perNode": {
-    "node-3": 4820,
-    "(none)": 1094,
-    "node-1": 6389,
-    "node-2": 9772
+    "node-2": 7179,
+    "(none)": 1063,
+    "node-3": 7620,
+    "node-1": 5822
   },
   "resources": {
     "gateway": {
       "containers": 1,
-      "avgCpuPercentTotal": 77.5,
-      "maxMemMiBTotal": 396.9
+      "avgCpuPercentTotal": 83.7,
+      "maxMemMiBTotal": 356.6
     },
     "nodes": {
       "containers": 3,
-      "avgCpuPercentTotal": 67.7,
-      "maxMemMiBTotal": 1328.1
+      "avgCpuPercentTotal": 71.7,
+      "maxMemMiBTotal": 1203.8
     },
     "mongo": {
       "containers": 4,
-      "avgCpuPercentTotal": 26.2,
-      "maxMemMiBTotal": 447.1
+      "avgCpuPercentTotal": 26.4,
+      "maxMemMiBTotal": 446.3
     },
     "redis": {
       "containers": 1,
-      "avgCpuPercentTotal": 17.8,
-      "maxMemMiBTotal": 5.4
+      "avgCpuPercentTotal": 18.7,
+      "maxMemMiBTotal": 8.4
     }
   },
   "events": []
