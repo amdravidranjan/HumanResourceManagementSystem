@@ -1,0 +1,289 @@
+{
+  "snowflake": {
+    "count": 300000,
+    "singleGeneratorMs": 76.184,
+    "singleGeneratorIdsPerSecond": 3937811,
+    "distinctNodeIds": {
+      "nodeIds": "[1, 2, 3]",
+      "generated": 300000,
+      "ms": 29.228,
+      "idsPerSecond": 10264040,
+      "collisions": 0
+    },
+    "sameNodeIdMisconfigured": {
+      "nodeIds": "[1, 1, 1]",
+      "generated": 300000,
+      "ms": 26.959,
+      "idsPerSecond": 11128099,
+      "collisions": 193998
+    }
+  },
+  "kv": {
+    "samples": 1000,
+    "redis": {
+      "avgMs": 0.544,
+      "p50Ms": 0.404,
+      "p95Ms": 1.352,
+      "p99Ms": 2.521
+    },
+    "mongo": {
+      "avgMs": 0.837,
+      "p50Ms": 0.647,
+      "p95Ms": 2.045,
+      "p99Ms": 4.473
+    },
+    "speedup": 1.539,
+    "nodeCacheHitRatio": 0.997,
+    "nodeCacheHits": 4138,
+    "nodeCacheMisses": 13
+  },
+  "autocomplete": {
+    "queries": 2000,
+    "indexedTerms": 69991,
+    "trie": {
+      "avgMs": 0.003,
+      "p50Ms": 0.002,
+      "p95Ms": 0.005,
+      "p99Ms": 0.019
+    },
+    "regexScatter": {
+      "avgMs": 15.172,
+      "p50Ms": 14.836,
+      "p95Ms": 20.226,
+      "p99Ms": 23.991
+    },
+    "precisionAt10": 1.0
+  },
+  "hashing": {
+    "keys": 100000,
+    "distributionByVirtualNodes": [
+      {
+        "virtualNodes": 1,
+        "counts": {
+          "shard-0": 70433,
+          "shard-1": 8748,
+          "shard-2": 20819
+        },
+        "stdDevPercent": 80.077,
+        "maxOverMin": 8.051
+      },
+      {
+        "virtualNodes": 10,
+        "counts": {
+          "shard-0": 37448,
+          "shard-1": 30414,
+          "shard-2": 32138
+        },
+        "stdDevPercent": 8.98,
+        "maxOverMin": 1.231
+      },
+      {
+        "virtualNodes": 50,
+        "counts": {
+          "shard-0": 27977,
+          "shard-1": 32955,
+          "shard-2": 39068
+        },
+        "stdDevPercent": 13.607,
+        "maxOverMin": 1.396
+      },
+      {
+        "virtualNodes": 150,
+        "counts": {
+          "shard-0": 34793,
+          "shard-1": 33908,
+          "shard-2": 31299
+        },
+        "stdDevPercent": 4.45,
+        "maxOverMin": 1.112
+      },
+      {
+        "virtualNodes": 500,
+        "counts": {
+          "shard-0": 34019,
+          "shard-1": 32020,
+          "shard-2": 33961
+        },
+        "stdDevPercent": 2.787,
+        "maxOverMin": 1.062
+      }
+    ],
+    "addFourthShard": {
+      "consistentMovedPercent": 25.925,
+      "moduloMovedPercent": 74.988,
+      "idealPercent": 25.0
+    }
+  },
+  "redirect": {
+    "requests": 500,
+    "redirects302": 500,
+    "avgMs": 5.229,
+    "p95Ms": 7.297,
+    "p99Ms": 10.082
+  },
+  "rateLimiter": {
+    "sent": 600,
+    "allowed": 184,
+    "rejected429": 416,
+    "durationSec": 1.74,
+    "rejectionRate": 0.6933,
+    "expectedAllowedApprox": 187,
+    "offeredRps": 345.6
+  },
+  "stats": {
+    "servedBy": "node-3",
+    "baseline": false,
+    "rebalancing": false,
+    "shards": [
+      {
+        "name": "shard-0",
+        "active": true,
+        "ringOwnership": 0.3484494951553643,
+        "counts": {
+          "employees": 3489,
+          "attendance": 64091,
+          "leaves": 2873,
+          "payslips": 3489,
+          "reviews": 63,
+          "notifications": 3836,
+          "jobs": 48,
+          "candidates": 14,
+          "short_urls": 6
+        },
+        "healthy": true
+      },
+      {
+        "name": "shard-1",
+        "active": true,
+        "ringOwnership": 0.33554716827347875,
+        "counts": {
+          "employees": 3345,
+          "attendance": 61416,
+          "leaves": 2771,
+          "payslips": 3344,
+          "reviews": 82,
+          "notifications": 3678,
+          "jobs": 28,
+          "candidates": 14,
+          "short_urls": 6
+        },
+        "healthy": true
+      },
+      {
+        "name": "shard-2",
+        "active": true,
+        "ringOwnership": 0.316003336571157,
+        "counts": {
+          "employees": 3168,
+          "attendance": 58421,
+          "leaves": 2471,
+          "payslips": 3168,
+          "reviews": 67,
+          "notifications": 3492,
+          "jobs": 39,
+          "candidates": 10,
+          "short_urls": 3
+        },
+        "healthy": true
+      },
+      {
+        "name": "shard-3",
+        "active": false,
+        "ringOwnership": 0.0,
+        "counts": {
+          "employees": 0,
+          "attendance": 0,
+          "leaves": 0,
+          "payslips": 0,
+          "reviews": 0,
+          "notifications": 0,
+          "jobs": 0,
+          "candidates": 0,
+          "short_urls": 0
+        },
+        "healthy": true
+      }
+    ],
+    "nodes": [
+      {
+        "name": "node-1",
+        "url": "http://hrms-node-1:8081",
+        "alive": true,
+        "stats": {
+          "requests": "2301",
+          "cacheMisses": "2",
+          "cacheHits": "920",
+          "idsGenerated": "1",
+          "trieEntries": "69991",
+          "updatedAt": "1791564583308"
+        }
+      },
+      {
+        "name": "node-2",
+        "url": "http://hrms-node-2:8082",
+        "alive": true,
+        "stats": {
+          "requests": "11873",
+          "cacheMisses": "10",
+          "cacheHits": "5046",
+          "idsGenerated": "202100",
+          "trieEntries": "69991",
+          "updatedAt": "1791564583309"
+        }
+      },
+      {
+        "name": "node-3",
+        "url": "http://hrms-node-3:8083",
+        "alive": true,
+        "stats": {
+          "requests": "10340",
+          "cacheMisses": "13",
+          "cacheHits": "4138",
+          "idsGenerated": "11119",
+          "trieEntries": "69991",
+          "updatedAt": "1791564583309"
+        }
+      }
+    ],
+    "cache": {
+      "hitRatio": 0.9968682245242111,
+      "misses": 13,
+      "enabled": true,
+      "hits": 4138
+    },
+    "autocompleteEntries": 69991,
+    "crawler": {
+      "status": "DONE",
+      "pagesFetched": "136",
+      "pagesFailed": "0",
+      "jobsFound": "102",
+      "duplicatesDropped": "18",
+      "blockedByRobots": "2",
+      "startedAt": "1791563970865",
+      "finishedAt": "1791563998058",
+      "pagesPerSecond": "5.00",
+      "node": "node-3",
+      "imported": "102",
+      "duplicatesSkipped": "0"
+    }
+  },
+  "loginBruteForce": {
+    "attempts": 12,
+    "statusCodes": [
+      401,
+      401,
+      401,
+      401,
+      401,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429,
+      429
+    ],
+    "rejected401": 5,
+    "blocked429": 7
+  }
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "nodes": 1,
+    "throughputRps": 319.1,
+    "avgMs": 313.98,
+    "p95Ms": 641.0,
+    "errorRate": 0.0,
+    "perNode": {
+      "node-1": 12113,
+      "(none)": 650
+    }
+  },
+  {
+    "nodes": 2,
+    "throughputRps": 322.5,
+    "avgMs": 309.87,
+    "p95Ms": 716.3,
+    "errorRate": 0.0,
+    "perNode": {
+      "node-1": 5003,
+      "(none)": 663,
+      "node-2": 7235
+    }
+  },
+  {
+    "nodes": 3,
+    "throughputRps": 322.9,
+    "avgMs": 309.25,
+    "p95Ms": 615.66,
+    "errorRate": 0.0,
+    "perNode": {
+      "node-2": 6261,
+      "(none)": 660,
+      "node-1": 3281,
+      "node-3": 2716
+    }
+  },
+  {
+    "nodes": 4,
+    "throughputRps": 367.1,
+    "avgMs": 273.67,
+    "p95Ms": 473.61,
+    "errorRate": 0.0,
+    "perNode": {
+      "node-1": 2866,
+      "(none)": 743,
+      "node-2": 5279,
+      "node-4": 3529,
+      "node-3": 2268
+    }
+  }
+]

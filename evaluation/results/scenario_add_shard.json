@@ -1,0 +1,47 @@
+{
+  "before": {
+    "shard-0": 3489,
+    "shard-1": 3345,
+    "shard-2": 3168,
+    "shard-3": 0
+  },
+  "after": {
+    "shard-0": 2425,
+    "shard-1": 2586,
+    "shard-2": 2463,
+    "shard-3": 2528
+  },
+  "result": {
+    "shard": "shard-3",
+    "shardsBefore": [
+      "shard-0",
+      "shard-1",
+      "shard-2"
+    ],
+    "shardsAfter": [
+      "shard-0",
+      "shard-1",
+      "shard-2",
+      "shard-3"
+    ],
+    "documentsScanned": 223622,
+    "documentsMoved": 56505,
+    "movedPercent": 25.26808632424359,
+    "employeesScanned": 10002,
+    "employeesMoved": 2528,
+    "employeesMovedPercent": 25.2749450109978,
+    "idealPercent": 25.0,
+    "movedPerCollection": {
+      "employees": 2528,
+      "attendance": 46527,
+      "leaves": 2041,
+      "payslips": 2528,
+      "reviews": 54,
+      "notifications": 2771,
+      "jobs": 37,
+      "candidates": 17,
+      "short_urls": 2
+    },
+    "durationMs": 7230
+  }
+}

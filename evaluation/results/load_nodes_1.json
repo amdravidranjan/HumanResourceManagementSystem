@@ -1,0 +1,92 @@
+{
+  "label": "nodes_1",
+  "users": 100,
+  "durationSec": 40,
+  "requests": 12763,
+  "throughputRps": 319.1,
+  "successRate": 1.0,
+  "errorRate": 0.0,
+  "rateLimited": 0,
+  "avgMs": 313.98,
+  "p50Ms": 274.02,
+  "p95Ms": 641.0,
+  "p99Ms": 926.26,
+  "maxMs": 2067.51,
+  "perOp": {
+    "profile": {
+      "count": 3880,
+      "avgMs": 302.08,
+      "p95Ms": 604.22,
+      "errors": 0
+    },
+    "suggest": {
+      "count": 2589,
+      "avgMs": 308.17,
+      "p95Ms": 609.15,
+      "errors": 0
+    },
+    "checkin": {
+      "count": 1909,
+      "avgMs": 310.78,
+      "p95Ms": 629.85,
+      "errors": 0
+    },
+    "leave_balance": {
+      "count": 1276,
+      "avgMs": 297.0,
+      "p95Ms": 599.99,
+      "errors": 0
+    },
+    "notifications": {
+      "count": 1227,
+      "avgMs": 306.7,
+      "p95Ms": 630.59,
+      "errors": 0
+    },
+    "payslips": {
+      "count": 596,
+      "avgMs": 311.66,
+      "p95Ms": 632.39,
+      "errors": 0
+    },
+    "jobs": {
+      "count": 636,
+      "avgMs": 312.24,
+      "p95Ms": 667.67,
+      "errors": 0
+    },
+    "redirect": {
+      "count": 650,
+      "avgMs": 468.46,
+      "p95Ms": 901.36,
+      "errors": 0
+    }
+  },
+  "perNode": {
+    "node-1": 12113,
+    "(none)": 650
+  },
+  "resources": {
+    "gateway": {
+      "containers": 1,
+      "avgCpuPercentTotal": 80.7,
+      "maxMemMiBTotal": 407.9
+    },
+    "nodes": {
+      "containers": 1,
+      "avgCpuPercentTotal": 61.6,
+      "maxMemMiBTotal": 393.8
+    },
+    "mongo": {
+      "containers": 4,
+      "avgCpuPercentTotal": 25.9,
+      "maxMemMiBTotal": 443.2
+    },
+    "redis": {
+      "containers": 1,
+      "avgCpuPercentTotal": 16.8,
+      "maxMemMiBTotal": 5.8
+    }
+  },
+  "events": []
+}

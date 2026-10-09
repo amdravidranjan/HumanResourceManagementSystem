@@ -1,0 +1,103 @@
+{
+  "label": "shard_failure",
+  "users": 50,
+  "durationSec": 60,
+  "requests": 21034,
+  "throughputRps": 350.6,
+  "successRate": 1.0,
+  "errorRate": 0.0,
+  "rateLimited": 0,
+  "avgMs": 142.57,
+  "p50Ms": 102.91,
+  "p95Ms": 224.51,
+  "p99Ms": 2030.56,
+  "maxMs": 3822.28,
+  "perOp": {
+    "profile": {
+      "count": 6309,
+      "avgMs": 97.41,
+      "p95Ms": 200.42,
+      "errors": 0
+    },
+    "suggest": {
+      "count": 4217,
+      "avgMs": 96.0,
+      "p95Ms": 198.68,
+      "errors": 0
+    },
+    "checkin": {
+      "count": 3111,
+      "avgMs": 96.45,
+      "p95Ms": 200.15,
+      "errors": 0
+    },
+    "leave_balance": {
+      "count": 2085,
+      "avgMs": 96.48,
+      "p95Ms": 205.87,
+      "errors": 0
+    },
+    "notifications": {
+      "count": 2088,
+      "avgMs": 96.08,
+      "p95Ms": 197.89,
+      "errors": 0
+    },
+    "payslips": {
+      "count": 1034,
+      "avgMs": 93.89,
+      "p95Ms": 197.61,
+      "errors": 0
+    },
+    "jobs": {
+      "count": 1086,
+      "avgMs": 940.04,
+      "p95Ms": 3433.83,
+      "errors": 0
+    },
+    "redirect": {
+      "count": 1104,
+      "avgMs": 144.61,
+      "p95Ms": 284.89,
+      "errors": 0
+    }
+  },
+  "perNode": {
+    "node-3": 4016,
+    "(none)": 1104,
+    "node-2": 11325,
+    "node-1": 4589
+  },
+  "resources": {
+    "gateway": {
+      "containers": 1,
+      "avgCpuPercentTotal": 85.9,
+      "maxMemMiBTotal": 433.3
+    },
+    "nodes": {
+      "containers": 3,
+      "avgCpuPercentTotal": 120.8,
+      "maxMemMiBTotal": 1093.4
+    },
+    "mongo": {
+      "containers": 4,
+      "avgCpuPercentTotal": 36.5,
+      "maxMemMiBTotal": 520.8
+    },
+    "redis": {
+      "containers": 1,
+      "avgCpuPercentTotal": 18.8,
+      "maxMemMiBTotal": 5.7
+    }
+  },
+  "events": [
+    {
+      "t": 20.2,
+      "event": "kill mongo-shard-1"
+    },
+    {
+      "t": 40.2,
+      "event": "restart mongo-shard-1"
+    }
+  ]
+}

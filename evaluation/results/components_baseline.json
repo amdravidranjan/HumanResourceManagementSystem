@@ -1,0 +1,222 @@
+{
+  "snowflake": {
+    "count": 300000,
+    "singleGeneratorMs": 77.669,
+    "singleGeneratorIdsPerSecond": 3862553,
+    "distinctNodeIds": {
+      "nodeIds": "[1, 2, 3]",
+      "generated": 300000,
+      "ms": 42.074,
+      "idsPerSecond": 7130378,
+      "collisions": 0
+    },
+    "sameNodeIdMisconfigured": {
+      "nodeIds": "[1, 1, 1]",
+      "generated": 300000,
+      "ms": 32.417,
+      "idsPerSecond": 9254268,
+      "collisions": 178887
+    }
+  },
+  "kv": {
+    "samples": 1000,
+    "redis": {
+      "avgMs": 0.983,
+      "p50Ms": 0.816,
+      "p95Ms": 1.699,
+      "p99Ms": 3.538
+    },
+    "mongo": {
+      "avgMs": 1.269,
+      "p50Ms": 1.157,
+      "p95Ms": 2.111,
+      "p99Ms": 3.34
+    },
+    "speedup": 1.29,
+    "nodeCacheHitRatio": 0.0,
+    "nodeCacheHits": 0,
+    "nodeCacheMisses": 0
+  },
+  "autocomplete": {
+    "queries": 2000,
+    "indexedTerms": 69980,
+    "trie": {
+      "avgMs": 0.007,
+      "p50Ms": 0.004,
+      "p95Ms": 0.012,
+      "p99Ms": 0.034
+    },
+    "regexScatter": {
+      "avgMs": 38.742,
+      "p50Ms": 37.502,
+      "p95Ms": 50.375,
+      "p99Ms": 60.46
+    },
+    "precisionAt10": 1.0
+  },
+  "hashing": {
+    "keys": 100000,
+    "distributionByVirtualNodes": [
+      {
+        "virtualNodes": 1,
+        "counts": {
+          "shard-0": 70378,
+          "shard-1": 8715,
+          "shard-2": 20907
+        },
+        "stdDevPercent": 79.99,
+        "maxOverMin": 8.076
+      },
+      {
+        "virtualNodes": 10,
+        "counts": {
+          "shard-0": 37517,
+          "shard-1": 30224,
+          "shard-2": 32259
+        },
+        "stdDevPercent": 9.218,
+        "maxOverMin": 1.241
+      },
+      {
+        "virtualNodes": 50,
+        "counts": {
+          "shard-0": 27914,
+          "shard-1": 32787,
+          "shard-2": 39299
+        },
+        "stdDevPercent": 13.992,
+        "maxOverMin": 1.408
+      },
+      {
+        "virtualNodes": 150,
+        "counts": {
+          "shard-0": 34900,
+          "shard-1": 33472,
+          "shard-2": 31628
+        },
+        "stdDevPercent": 4.018,
+        "maxOverMin": 1.103
+      },
+      {
+        "virtualNodes": 500,
+        "counts": {
+          "shard-0": 33898,
+          "shard-1": 32293,
+          "shard-2": 33809
+        },
+        "stdDevPercent": 2.21,
+        "maxOverMin": 1.05
+      }
+    ],
+    "addFourthShard": {
+      "consistentMovedPercent": 26.331,
+      "moduloMovedPercent": 74.806,
+      "idealPercent": 25.0
+    }
+  },
+  "redirect": {
+    "requests": 500,
+    "redirects302": 500,
+    "avgMs": 10.304,
+    "p95Ms": 14.435,
+    "p99Ms": 21.131
+  },
+  "rateLimiter": {
+    "sent": 600,
+    "allowed": 600,
+    "rejected429": 0,
+    "durationSec": 1.84,
+    "rejectionRate": 0.0,
+    "expectedAllowedApprox": 192,
+    "offeredRps": 325.9
+  },
+  "stats": {
+    "servedBy": "node-1",
+    "baseline": true,
+    "rebalancing": false,
+    "shards": [
+      {
+        "name": "shard-0",
+        "active": true,
+        "ringOwnership": 1.0,
+        "counts": {
+          "employees": 10000,
+          "attendance": 183917,
+          "leaves": 8113,
+          "payslips": 0,
+          "reviews": 211,
+          "notifications": 3,
+          "jobs": 12,
+          "candidates": 37,
+          "short_urls": 12
+        },
+        "healthy": true
+      },
+      {
+        "name": "shard-1",
+        "active": false,
+        "ringOwnership": 0.0,
+        "healthy": false,
+        "error": "unreachable"
+      },
+      {
+        "name": "shard-2",
+        "active": false,
+        "ringOwnership": 0.0,
+        "healthy": false,
+        "error": "unreachable"
+      },
+      {
+        "name": "shard-3",
+        "active": false,
+        "ringOwnership": 0.0,
+        "healthy": false,
+        "error": "unreachable"
+      }
+    ],
+    "nodes": [
+      {
+        "name": "node-1",
+        "url": "http://hrms-node-1:8081",
+        "alive": true,
+        "stats": {
+          "requests": "611",
+          "cacheMisses": "0",
+          "cacheHits": "0",
+          "idsGenerated": "202094",
+          "trieEntries": "69980",
+          "updatedAt": "1791565328606"
+        }
+      }
+    ],
+    "cache": {
+      "hits": 0,
+      "hitRatio": 0.0,
+      "misses": 0,
+      "enabled": false
+    },
+    "autocompleteEntries": 69980,
+    "crawler": {
+      "status": "IDLE"
+    }
+  },
+  "loginBruteForce": {
+    "attempts": 12,
+    "statusCodes": [
+      401,
+      401,
+      401,
+      401,
+      401,
+      401,
+      401,
+      401,
+      401,
+      401,
+      401,
+      401
+    ],
+    "rejected401": 12,
+    "blocked429": 0
+  }
+}
