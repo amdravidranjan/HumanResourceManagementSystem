@@ -158,10 +158,10 @@ class ResourceSampler(threading.Thread):
         super().__init__(daemon=True)
         self.interval = interval
         self.samples = []
-        self._stop = threading.Event()
+        self._halt = threading.Event()
 
     def run(self):
-        while not self._stop.is_set():
+        while not self._halt.is_set():
             try:
                 out = subprocess.run(["docker", "stats", "--no-stream", "--format", "{{json .}}"],
                                      capture_output=True, text=True, timeout=30).stdout
@@ -171,10 +171,10 @@ class ResourceSampler(threading.Thread):
                                          "memMiB": _mib(d["MemUsage"].split("/")[0])})
             except Exception:  # noqa: BLE001 - sampling is best effort
                 pass
-            self._stop.wait(self.interval)
+            self._halt.wait(self.interval)
 
     def stop(self):
-        self._stop.set()
+        self._halt.set()
         self.join(timeout=40)
 
     def summary(self):
