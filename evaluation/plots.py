@@ -18,8 +18,8 @@ plt.rcParams.update({"figure.dpi": 150, "savefig.dpi": 150, "font.size": 10, "ax
                      "axes.spines.right": False, "axes.grid": True, "grid.alpha": 0.25, "axes.titleweight": "bold"})
 
 
-def save(fig, name):
-    fig.tight_layout()
+def save(fig, name, bottom=0.0):
+    fig.tight_layout(rect=(0, bottom, 1, 1))
     fig.savefig(GRAPHS / name)
     plt.close(fig)
     print("  wrote", name)
@@ -106,9 +106,12 @@ def node_scaling():
     ax2.plot(n, [r["p95Ms"] for r in rows], marker="s", color=BAD, label="p95 latency (ms)")
     ax2.set_ylabel("p95 ms")
     ax2.grid(False)
+    # both axes start at zero so small run-to-run differences are not exaggerated
+    ax.set_ylim(0, max(r["throughputRps"] for r in rows) * 1.25)
+    ax2.set_ylim(0, max(r["p95Ms"] for r in rows) * 1.25)
     ax.set_title("Scaling out HR nodes (100 users)")
-    fig.legend(loc="upper center", bbox_to_anchor=(0.5, 0.92), ncol=2, frameon=False, fontsize=8)
-    save(fig, "node_scaling.png")
+    fig.legend(loc="lower center", ncol=2, frameon=False, fontsize=8)
+    save(fig, "node_scaling.png", bottom=0.07)
 
 
 def timeline(label, title, name):
@@ -127,13 +130,14 @@ def timeline(label, title, name):
     ax2 = ax.twinx()
     ax2.plot(sec, [float(r["p95Ms"]) for r in rows], color="#b26a00", linestyle=":", label="p95 ms")
     ax2.set_ylabel("p95 latency (ms)")
+    ax2.set_ylim(0, max(float(r["p95Ms"]) for r in rows) * 1.1)
     ax2.grid(False)
     for e in d.get("events", []):
         ax.axvline(e["t"], color="black", linestyle="--", linewidth=1)
         ax.annotate(e["event"], (e["t"], ax.get_ylim()[1] * 0.95), rotation=90, fontsize=8, ha="right", va="top")
     ax.set_title(title)
     fig.legend(loc="lower center", ncol=3, frameon=False, fontsize=8)
-    save(fig, name)
+    save(fig, name, bottom=0.07)
 
 
 def shard_distribution():
