@@ -103,7 +103,12 @@ def wait_ready(min_employees=1000, timeout=1200):
 def compose(*args, baseline=False, check=True):
     cmd = ["docker", "compose"] + (["-f", "docker-compose.baseline.yml"] if baseline else []) + list(args)
     print("  $ " + " ".join(cmd), flush=True)
-    return subprocess.run(cmd, cwd=ROOT, check=check, capture_output=True, text=True)
+    r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stdout[-2000:] + r.stderr[-2000:], flush=True)
+        if check:
+            raise subprocess.CalledProcessError(r.returncode, cmd, r.stdout, r.stderr)
+    return r
 
 
 def docker(*args, check=False):
