@@ -61,12 +61,13 @@ When the system starts for the first time, node 1 creates 10,000 employees with 
 docker logs -f hrms-node-1
 ```
 
-Wait until you see both of these lines, then press **Ctrl+C**. This takes about 1–3 minutes.
+Wait until you see a line like this one, with **10000** employees, then press **Ctrl+C**. This takes about 1–3 minutes.
 
 ```
-Seeding finished in ... ms
-Search index rebuilt: ... employees ...
+Search index rebuilt: 10000 employees (... terms), ... open jobs in ... ms
 ```
+
+You may first see an earlier line that says `0 employees`. That one doesn't count, so keep waiting. Only one of the three nodes does the seeding, so the "Seeding finished" line may be in `hrms-node-2` or `hrms-node-3` instead. You don't need to look for it.
 
 ### 4. Open it in the browser
 
@@ -181,7 +182,7 @@ docker compose down -v     # stop and delete all data (next start re-seeds)
 | `docker` commands hang, or say "cannot connect to the Docker daemon" | Quit Docker Desktop completely and reopen it. Wait for "Engine running". |
 | A container keeps restarting, or an out-of-memory error (exit code 137) | Give Docker more memory (Settings → Resources) and close other apps. |
 | `port is already allocated` | Another program is using that port. Stop it, or change the left-hand port number in `docker-compose.yml`. |
-| Login fails right after startup | The data is still loading. Wait for the "Seeding finished" log line (step 3). |
+| Login fails right after startup | The data is still loading. Wait for the `Search index rebuilt: 10000 employees` log line (step 3). |
 | `python` is not recognised | Use `py` on Windows or `python3` on Mac/Linux. |
 | Something is broken and you want a clean start | Run `docker compose down -v`, then `docker compose up -d --build`. |
 | Need logs to report a problem | Run `docker logs hrms-node-1 > node1.txt` and `docker logs hrms-gateway > gw.txt`, then send the files. |
